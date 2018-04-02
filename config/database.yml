@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: peakbook_production
-  username: peakbook
+  # username: peakbook
   password: <%= ENV['PEAKBOOK_DATABASE_PASSWORD'] %>
