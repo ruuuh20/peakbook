@@ -12,6 +12,21 @@
 //
 //= require rails-ujs
 
-//= require_tree .
-//= require bootstrap-sprockets
 //= require jquery
+
+
+
+
+$(() => {
+  bindClickHandlers()
+})
+
+const bindClickHandlers = () => {
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $(".sidebar-wrapper").toggleClass("active");
+    // console.log("hi")
+
+  });
+
+}

@@ -19,3 +19,46 @@ body {
   padding-top: 70px;
   // padding-left: 50px;
 }
+
+.sidebar-wrapper {
+  min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+  background-color: rgb(102, 137, 152);
+  padding-left: 20px;
+
+}
+
+.row {
+  display: flex;
+  align-items: stretch;
+}
+
+.sidebar-wrapper.active {
+  margin-left: -250px
+}
+
+
+
+ .sidebar-nav {
+  padding: 20%;
+  list-style: none;
+ }
+
+ .sidebar-nav li {
+   // text-indent: 20px;
+   line-height: 40px;
+ }
+
+ .sidebar-nav li a {
+   // padding-left: 10px;
+   color: rgb(219, 214, 201)
+ }
+
+
+
+ // main content //
+
+ .wrapper {
+   padding: 20px;
+ }
