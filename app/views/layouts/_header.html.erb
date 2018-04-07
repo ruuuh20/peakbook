@@ -7,13 +7,13 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="navbar-item">
-            <a href="#" class="nav-link">Home</a>
+            <%= link_to "Home", root_path, :class => "nav-link" %>
           </li>
           <li class="navbar-item">
-            <a href="#" class="nav-link">Courses</a>
+            <%= link_to "Dashboard", dashboard_path, :class => "nav-link" %>
           </li>
           <li class="navbar-item">
-            <a href="#" class="nav-link">Dashboard</a>
+            <%= link_to "All Courses", courses_path, :class => "nav-link" %> 
           </li>
         </ul>
       </div>
