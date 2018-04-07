@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'static_pages#home'
+  get '/dashboard' => 'static_pages#dashboard'
   resources :courses
   resources :assignments
   resources :grades
