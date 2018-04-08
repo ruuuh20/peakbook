@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get '/dashboard' => 'static_pages#dashboard'
-  resources :courses
+  resources :courses do
+    resources :assignments
+  end
+
   resources :assignments
   resources :grades
 

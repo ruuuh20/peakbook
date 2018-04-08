@@ -1,2 +1,50 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<div class="wrapper course-show-wrapper">
+
+  <% content_for(:sidebar) do %>
+    <%= render :partial => "layouts/sidebar" %>
+  <% end %>
+
+
+<h1><%= @course.name %> - Code: <%= @course.code %></h1>
+<h5>description...</h5>
+<h4><%= link_to "See Assignments", "#", :class => "show_assignments", :data => {:courseid => @course.id } %></h4>
+
+<div class="load_assignments">
+</div>
+
+
+<br>
+<br>
+<h3>Add Assignment</h3>
+
+<%= form_for [@course, @assignment], :data => {:id => @assignment.id } do |f|  %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+</div>
+
+
+<div class="field">
+  <%= f.submit 'Create Assignment'%>
+</div>
+
+<% end %>
+
+<div id="newAssignment">
+  <h2 id="assignmentName"></h2>
+
+  <p id="assignmentDescription"></p>
+  <p id="assignmentDate"></p>
+
+</div>
+
+<br>
+<%= link_to "Go back", courses_path %>
+
+
+</div>
