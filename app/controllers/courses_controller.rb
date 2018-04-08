@@ -24,6 +24,7 @@ class CoursesController < ApplicationController
       @course = Course.find(params[:id])
       @assignments = @course.assignments
       @assignment = @course.assignments.build
+      @students = Student.all
   end
 
   private
