@@ -33,6 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'devise'
+gem 'omniauth-github'
+gem 'dotenv-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

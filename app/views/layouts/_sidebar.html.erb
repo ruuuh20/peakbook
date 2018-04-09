@@ -1,6 +1,11 @@
 <div class="sidebar-wrapper">
 
   <ul class="sidebar-nav">
+    <% if user_signed_in? %>
+      <div class="logged-in">
+        logged in as: <%= current_user.email %>
+      </div>
+<% end %>
     <li class="sidebar-item"><%= link_to "Home", root_path %></li>
     <li class="sidebar-item active">
       <a href="#courses-submenu" data-toggle="collapse" aria-expanded="false">Courses</a>
