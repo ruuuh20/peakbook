@@ -6,4 +6,7 @@ class Grade < ApplicationRecord
   def self.grouped
   Grade.all.group_by(&:assignment_id)
 end
+
+
+
 end

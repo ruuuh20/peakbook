@@ -1,0 +1,14 @@
+<div class="wrapper">
+
+
+<h1><%= @student.last_name %>, <%= @student.first_name %></h1>
+
+<p>Enrolled in: </p>
+<% @student.courses.each do |c| %>
+  <%= c.name %><br>
+  <% end %>
+
+<p>Grades: </p>
+<%= @student.student_grades %>
+
+</div>

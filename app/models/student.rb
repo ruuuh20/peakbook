@@ -12,6 +12,11 @@ class Student < ApplicationRecord
   end
 end
 
+  def student_grades
+    self.grades.all.map { |m| m.score }
+  end
+
+
   def student_assignments_total
     self.courses.each do |course|
       course.assignments.each do |assignment|
