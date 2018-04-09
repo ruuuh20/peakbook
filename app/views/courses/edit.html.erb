@@ -1,0 +1,27 @@
+<div class="wrapper">
+
+
+<h2>Edit Course Information</h2>
+
+<%= form_for @course do |f| %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :code %>
+  <%= f.text_field :code %>
+</div>
+
+<div class="field">
+  <%= f.label :start_date %>
+  <%= f.date_field :start_date %>
+</div>
+
+<div class="field">
+  <%= f.submit 'Update'%>
+</div>
+<% end %>
+
+</div>

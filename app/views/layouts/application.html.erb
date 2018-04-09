@@ -17,6 +17,9 @@
         <!-- <%= yield :sidebar %> -->
 
             <%= render 'layouts/sidebar' %>
+            <div class="container">
+
+
               <% if flash[:notice] || flash[:error] || flash[:alert] %>
                 <div class="alert">
                   <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
@@ -24,6 +27,7 @@
                   <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
                 </div>
               <% end %>
+              </div>
             <%= yield %>
 
     </div>
