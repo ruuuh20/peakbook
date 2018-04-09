@@ -2,7 +2,15 @@
 
   <ul class="sidebar-nav">
     <li class="sidebar-item"><%= link_to "Home", root_path %></li>
-    <li class="sidebar-item"><%= link_to "All Courses", "courses_path" %></li>
-    <li class="sidebar-item"><%= link_to "Assignments", "#" %></li>
+    <li class="sidebar-item active">
+      <a href="#courses-submenu" data-toggle="collapse" aria-expanded="false">Courses</a>
+        <ul class="collapse" id="courses-submenu">
+          <li>Page</li>
+
+        </ul>
+      </li>
+
+    <li class="sidebar-item"><%= link_to "Assignments", assignments_path %></li>
+    <li class="sidebar-item"><%= link_to "Students", students_path %></li>
   </ul>
 </div>

@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
     @course = Course.create(course_params)
     if @course.save
       flash[:notice] = "Course created"
+      redirect_to courses_path
     else
       flash[:error] = "There was an error"
     redirect_to root_path
