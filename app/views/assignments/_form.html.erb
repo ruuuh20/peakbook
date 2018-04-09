@@ -11,10 +11,6 @@
   <%= f.date_field :date %>
 </div>
 
-<div class="field">
-  <%= f.label "Select Teacher" %>
-  <%= f.select(:user_id, User.teacher.map {|u|  [u.email, u.id] }) %>
-</div>
 
 
 <div class="field">
