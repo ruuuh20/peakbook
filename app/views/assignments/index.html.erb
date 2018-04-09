@@ -1,5 +1,14 @@
+<div class="container">
+
+
 <% @assignments.each do |assignment| %>
-  <%= assignment.name %>
+  <%= assignment.name %><br>
 <% end %>
 
+<div class="row">
+
+
+
 <%= link_to "New Assignment", new_assignment_path %>
+</div>
+</div>

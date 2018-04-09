@@ -1,0 +1,23 @@
+<h2>Add New</h2>
+
+<%= form_for [@course, @assignment] do |f| %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+</div>
+
+<div class="field">
+  <%= f.label "Select Teacher" %>
+  <%= f.select(:user_id, User.teacher.map {|u|  [u.email, u.id] }) %>
+</div>
+
+
+<div class="field">
+  <%= f.submit 'Create Assignment'%>
+</div>
+<% end %>

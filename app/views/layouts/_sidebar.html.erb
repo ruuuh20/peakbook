@@ -3,7 +3,8 @@
   <ul class="sidebar-nav">
     <% if user_signed_in? %>
       <div class="logged-in">
-        logged in as: <%= current_user.email %>
+        logged in as: <%= current_user.role %><br>
+        <%= current_user.email %>
       </div>
 <% end %>
     <li class="sidebar-item"><%= link_to "Home", root_path %></li>

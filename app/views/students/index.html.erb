@@ -1,3 +1,6 @@
 <% @students.all.each do |student| %>
   <%= student.first_name %> <%= student.last_name %><br>
   <% end %>
+
+
+<h4><%= link_to "Add New Student", new_student_path %></h4>

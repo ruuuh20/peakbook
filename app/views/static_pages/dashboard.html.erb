@@ -1,5 +1,5 @@
 <div class="wrapper dashboard-wrapper">
-<!-- 
+<!--
   <% content_for(:sidebar) do %>
     <%= render :partial => "layouts/sidebar" %>
   <% end %> -->
@@ -9,8 +9,29 @@
       <div class="row">
         <div class="col-lg-12">
           <a href="#" class="btn btn-info" id="menu-toggle">Toggle Menu</a>
-          <h1>Dashboard</h1>
-          <p>-</p>
+            <% if current_user.admin?  %>
+              <h2>Admin Dashboard</h2>
+            <% else %>
+              <h2>Dashboard (<%= current_user.email %>)</h2>
+            <% end %>
+
+        <div class="container">
+
+            <% if current_user.admin?  %>
+              Student accounts: <%= Student.all.count %><br>
+              Teacher accounts: <%= User.teacher.count %><br>
+
+          
+              <%= link_to "See all courses", courses_path %><br>
+              <%= link_to "See all grades", grades_path %><br>
+            <% elsif current_user.teacher? %>
+            <h4>Enrolled in <%= pluralize(@courses.count, 'course') %>: </h4>
+
+
+                <%= link_to 'Input New Grade', new_grade_path %>
+
+
+            <% end %>
 
         </div>
 

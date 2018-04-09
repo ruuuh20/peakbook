@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
 
   private
    def student_params
-     params.require(:student).permit(:last_name, :first_name)
+     params.require(:student).permit(:last_name, :first_name, course_ids:[], courses_attributes: [:name])
    end
 
 end

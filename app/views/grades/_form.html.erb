@@ -1,0 +1,40 @@
+<div class="wrapper">
+
+
+<h2>Input Grade</h2>
+
+<% if @grade.errors.any? %>
+  <div class="error_explanation"
+    <h2><%= pluralize(@grade.errors.count, "error") %> prohibited this grade from being saved:</h2>
+      <ul>
+       <% @grade.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+      </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @grade do |f| %>
+<div class="field">
+  <%= f.label :score %>
+  <%= f.number_field :score %>
+</div>
+
+<div class="field">
+  <%= f.label "Select Student" %>
+  <%= f.select(:student_id, Student.all.map {|u|  [u.first_name, u.id] }) %>
+</div>
+
+<div class="field">
+  <%= f.label "Select Assignment" %>
+  <%= f.select(:assignment_id, Assignment.all.map {|u|  u.id }) %>
+</div>
+
+
+<div class="field">
+  <%= f.submit 'Create'%>
+</div>
+<% end %>
+
+</div>
