@@ -1,3 +1,5 @@
 <% @assignments.each do |assignment| %>
   <%= assignment.name %>
 <% end %>
+
+<%= link_to "New Assignment", new_assignment_path %>

@@ -5,6 +5,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github]
 
+  enum :role => [:admin, :teacher]
+
+
+  #hook
+# after_initialize is used instead of overriding activerecord's initialize
+after_initialize :set_default_role
+
+
+def set_default_role
+  self.role ||= :admin
+  # self.role = :student unless self.role
+end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
