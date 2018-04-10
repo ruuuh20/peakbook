@@ -29,4 +29,28 @@ const bindClickHandlers = () => {
 
   });
 
+  $("a.show_assignments").on("click", function(e) {
+  e.preventDefault();
+  const courseId = $(this).attr("data-courseid")
+
+  $.get(`/courses/${courseId}/assignments.json`).success(function(json) {
+    var $ol = $("div.courses ol")
+    json.forEach(function(assignment) {
+       $(".load_assignments").append("<h4>" + assignment.name + "</h4>");
+    })
+
+
+    // const filtered = json.filter(assignment => assignment.date.slice(0, 4) === "2017")
+
+
+  // filtered.forEach(function(assignment) {
+  //   // debugger
+  //   $(".load_assignments").append("<h2>" + assignment.name + "</h2>")
+  //
+  // })
+  })
+
+
+})
+
 }

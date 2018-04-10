@@ -1,11 +1,17 @@
 class AssignmentsController < ApplicationController
 
   def index
-    @assignments = Assignment.all
+    @all_assignments = Assignment.all
+    # respond_to do |format|
+    # format.html {:index}
+    @course = Course.find(params[:course_id])
+      @assignments = @course.assignments
+    render :json =>  @assignments
+  # end
   end
 
   def new
-    
+
     @assignment = Assignment.new
 
   end

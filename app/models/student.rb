@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   has_many :grades
-  has_many :registrations
-  has_many :courses, through: :registrations
+  has_many :enrollments
+  has_many :courses, through: :enrollments
   has_many :assignments, through: :grades
 
   def courses_attributes=(course_attributes)

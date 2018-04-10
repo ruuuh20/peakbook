@@ -21,12 +21,12 @@ student5 = Student.create(:last_name => "Griezmann", :first_name => "Antoine")
 student6 = Student.create(:last_name => "Hazard", :first_name => "Eden")
 
 
-registration1 = Registration.create(:student_id => 1, :course_id => 1)
-registration2 = Registration.create(:student_id => 1, :course_id => 2)
-registration3 = Registration.create(:student_id => 2, :course_id => 3)
-registration4 = Registration.create(:student_id => 3, :course_id => 1)
-registration5 = Registration.create(:student_id => 4, :course_id => 2)
-registration6 = Registration.create(:student_id => 5, :course_id => 4)
+enrollment1 = Enrollment.create(:student_id => 1, :course_id => 1)
+enrollment2 = Enrollment.create(:student_id => 1, :course_id => 2)
+enrollment3 = Enrollment.create(:student_id => 2, :course_id => 3)
+enrollment4 = Enrollment.create(:student_id => 3, :course_id => 1)
+enrollment5 = Enrollment.create(:student_id => 4, :course_id => 2)
+enrollment6 = Enrollment.create(:student_id => 5, :course_id => 4)
 
 assignment1 = Assignment.create(:name => "essay 1", :date => Date.parse("2017-03-20"), :course_id => 1)
 assignment2 = Assignment.create(:name => "exam a", :date => Date.parse("2017-04-20"), :course_id => 2)
