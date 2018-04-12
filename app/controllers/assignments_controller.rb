@@ -1,5 +1,7 @@
 class AssignmentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @all_assignments = Assignment.all
     # respond_to do |format|
