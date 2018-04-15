@@ -16,24 +16,33 @@
       <th scope="col">ID</th>
       <th scope="col">First</th>
       <th scope="col" class="add-border">Last</th>
+
       <% @assignments.each do |assignment|  %>
-        <th><%= assignment.name %></th>
+          <th><%= assignment.name %></th>
       <% end %>
-
-
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.id %></td>
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
 
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+      <% @students.each do |student| %>
+            <tr>
+              <td><%= student.id %></td>
+              <td><%= student.first_name %></td>
+              <td><%= student.last_name %></td>
+              <% @assignments.each do |assignment|  %>
+                <% student.assignments.each do |a|  %>
+
+                      <% if a === assignment %>
+                        <td><%= Grade.find_by_student_id_and_assignment_id(student, a).score %></td>
+                  
+                      <% end %>
+                      <% end %>
+
+                <% end %>
+            </tr>
+          <% end %>
+        </tbody>
 </table>
 
 

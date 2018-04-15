@@ -36,5 +36,8 @@ assignment5 = Assignment.create(:name => "quiz", :date => Date.parse("2017-04-20
 assignment6 = Assignment.create(:name => "essay", :date => Date.parse("2017-09-20"), :course_id => 6)
 
 grade1 = Grade.create(:score => 90, :assignment_id => 1, :student_id => 1)
-grade2 = Grade.create(:score => 50, :assignment_id => 2, :student_id => 2)
-grade3 = Grade.create(:score => 50, :assignment_id => 2, :student_id => 5)
+grade2 = Grade.create(:score => 50, :assignment_id => 3, :student_id => 2)
+grade3 = Grade.create(:score => 50, :assignment_id => 4, :student_id => 5)
+grade4 = Grade.create(:score => 30, :assignment_id => 2, :student_id => 1)
+grade5 = Grade.create(:score => 85, :assignment_id => 1, :student_id => 3)
+grade6 = Grade.create(:score => 85, :assignment_id => 2, :student_id => 4)

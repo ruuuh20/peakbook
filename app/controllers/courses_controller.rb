@@ -28,6 +28,7 @@ class CoursesController < ApplicationController
       @assignments = @course.assignments
       @assignment = @course.assignments.build
       @students = @course.students.all
+        @grades
   end
 
   def edit

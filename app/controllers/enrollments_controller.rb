@@ -5,4 +5,10 @@ class EnrollmentsController < ApplicationController
   def index
     @enrollments = Enrollment.all
   end
+
+  def new
+    @enrollment = Enrollment.new
+  end
+
+
 end
