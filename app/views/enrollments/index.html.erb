@@ -6,11 +6,13 @@
   <tr>
     <th>Student ID</th>
     <th>Course ID</th>
+    <th> </th>
   </tr>
   <% @enrollments.each do |r| %>
     <tr>
       <td><%= r.student_id %></td>
       <td><%= r.course_id %></td>
+      <td>Delete</td>
     </tr>
   <% end %>
   </thead>

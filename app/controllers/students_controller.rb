@@ -13,7 +13,14 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(student_params)
-    if @student.save
+
+
+    if @student.save && @student.course_ids.count === 1  #make a new enrollment per course but not per student
+        Enrollment.create(:student_id => params[:id], :course_id => @student.course_ids.first)
+      elsif @student.save && @student.course_ids.count > 1
+        @student.course_ids.each do |course_id|
+          Enrollment.create(:student_id => params[:id], :course_id => @student.course_id)
+        end
         flash[:notice] = "Student created"
         redirect_to students_path
       else
