@@ -21,6 +21,14 @@ class EnrollmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @enrollment = Enrollment.find(params[:id])
+    @enrollment.destroy
+  
+    flash[:notice] = "Deleted"
+    redirect_to enrollments_path
+  end
+
   private
   def enrollment_params
     params.require(:enrollment).permit(:student_id, :course_id)
