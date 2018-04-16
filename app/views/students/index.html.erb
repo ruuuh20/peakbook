@@ -1,11 +1,48 @@
 <div class="wrapper">
 
-
-
 <% @students.each do |student| %>
-  <%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %><br>
+  <%= link_to "#{student.fullname}", student_path(student) %><br>
   <% end %>
 
+<br>
+<br>
 
-<h4><%= link_to "Add New Student", new_student_path %></h4>
+  <div id="newStudent">
+  <h2 id="studentName"></h2>
+
+</div>
+</div>
+
+<div class="wrapper">
+
+<%= form_for @student, :data => {:id => @student.id } do |f| %>
+
+<div class="field">
+  <%= f.label "Last Name" %>
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="field">
+  <%= f.label "First Name" %>
+  <%= f.text_field :first_name %>
+</div>
+
+<div class="container checkbox-list">
+  <%= f.collection_check_boxes(:course_ids, Course.all, :id, :name) do |b| %>
+    <div class="form-check">
+      <%= b.label(class: "check_box") do %>
+        <div class="row">
+          <%= b.check_box(class: "check_box") %>     <%= b.object.name %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= f.submit %>
+</div>
+
+<% end %>
+
 </div>

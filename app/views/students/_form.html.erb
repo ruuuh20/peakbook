@@ -1,7 +1,7 @@
 <div class="wrapper">
 
 
-<%= form_for @student do |f| %>
+<%= form_for @student, :html => { :id => 'student_form_id' } do |f| %>
 
 <div class="field">
   <%= f.label "Last Name" %>

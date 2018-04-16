@@ -13,22 +13,27 @@ class AssignmentsController < ApplicationController
   end
 
   def new
-
     @assignment = Assignment.new
-
   end
 
   def create
     @course = Course.find(params[:course_id])
     # @course = Course.find(params[:id])
     # @assignment = Assignment.create(assignment_params)
+    @assignment = Assignment.new(assignment_params)
     @assignment = @course.assignments.build(assignment_params)
+
     @assignment.course_id = @course.id
     if current_user.teacher?
       @assignment.user_id = current_user.id
     end
+
+
     # binding.pry
     if @assignment.save
+      @course.students.each do |student|
+        student.assignments.build(assignment_params).save
+      end
       flash[:notice] = "Assignment was created."
       # respond_to do |format|
       #   format.html {redirect_to course_path(@course)}
@@ -78,7 +83,7 @@ class AssignmentsController < ApplicationController
 
 private
   def assignment_params
-    params.require(:assignment).permit(:name, :description, :date, :status, :user_id)
+    params.require(:assignment).permit(:name, :course_id, :date)
   end
 
 

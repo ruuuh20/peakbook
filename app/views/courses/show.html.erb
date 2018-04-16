@@ -31,17 +31,18 @@
               <td><%= student.first_name %></td>
               <td><%= student.last_name %></td>
               <% @assignments.each do |assignment|  %>
-                <% student.assignments.each do |a|  %>
-
-                      <% if a === assignment %>
-                        <td><%= Grade.find_by_student_id_and_assignment_id(student, a).score %></td>
-                  
-                      <% end %>
-                      <% end %>
-
+                <% if student.assignments.count > 0 %>
+                  <% student.assignments.each do |a|  %>
+                    <% if a === assignment %>
+                      <td><%= Grade.find_by_student_id_and_assignment_id(student, a).score %></td>
+                    <% end %>
+                    <% end %>
+                <% else %>
+                    <td><%= link_to "Enter grade", new_grade_path  %></td>
                 <% end %>
+              <% end %>
             </tr>
-          <% end %>
+        <% end %>
         </tbody>
 </table>
 

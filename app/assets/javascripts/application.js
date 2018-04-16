@@ -14,22 +14,36 @@
 
 //= require jquery
 
-
-
-
 $(() => {
   bindClickHandlers()
 })
 
 const bindClickHandlers = () => {
+
+// // $('#student_form_id').hide();
+//
+// $('add_student_id').click(function(e) {
+//   e.preventDefault();
+//   $('#student_form_id').show();
+// })
+
+  // $grades = $('#grade_assignment_id').html();
+// dynamicdependent dropdown list
+  // $("#student']").click(function(){
+  //   var url = '/get_drop_down_options?category_id=' + $(this).val()
+  //   $("#group").removeOption(/./)
+  //   $.get(url, function(data) {
+  //     $('#group').addOption(data, false);
+  //   });
+  // });
+
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $(".sidebar-wrapper").toggleClass("active");
-    // console.log("hi")
-
   });
 
-  $("a.show_assignments").on("click", function(e) {
+// click to see list of assignments
+  $("a.show_assignments").one("click", function(e) {
   e.preventDefault();
   const courseId = $(this).attr("data-courseid")
 
@@ -38,10 +52,7 @@ const bindClickHandlers = () => {
     json.forEach(function(assignment) {
        $(".load_assignments").append("<h4>" + assignment.name + "</h4>");
     })
-
-
     // const filtered = json.filter(assignment => assignment.date.slice(0, 4) === "2017")
-
 
   // filtered.forEach(function(assignment) {
   //   // debugger
@@ -49,8 +60,53 @@ const bindClickHandlers = () => {
   //
   // })
   })
-
-
 })
-
 }
+
+function Student(student) {
+  debugger
+  this.id = student.id;
+  this.last_name = student.last_name
+  this.first_name = student.first_name
+}
+
+Student.prototype.formatIndex = function() {
+  // console.log(this)
+  let html = ""
+  html = `<h1>${this.last_name}</h1>` +
+          `<h3>${this.first_name}</h3>` +
+          `<h3>ID: ${this.id}</h3>`
+
+  $("#studentName").append(html)
+}
+
+//Submit assignments via ajax
+$(function() {
+  $("#new_student").on("submit", function(e) {
+    e.preventDefault();
+    // url = $(this).url
+    const action = $(this).attr('action') + ".json"
+    const id = $(this).attr("data-id")
+    const values = $(this).serialize();
+
+    //using low-level ajax instead of $.post
+    $.ajax({
+      url: action,
+      data: values,
+      dataType: "json",
+      method: "POST"
+    })
+    .success(json => {
+
+
+      const newStudent= new Student(json)
+  
+      newStudent.formatIndex();
+
+
+    })
+    .error(function() {
+      alert("You are not authorized to do this..")
+    })
+  })
+})

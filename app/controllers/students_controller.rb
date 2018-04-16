@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    @student = Student.new
   end
 
   def new
@@ -23,6 +24,10 @@ class StudentsController < ApplicationController
         end
         flash[:notice] = "Student created"
         redirect_to students_path
+        respond_to do |format|
+          format.html {redirect_to students_path}
+          format.json {render :json =>  @student}
+        end
       else
         flash[:error] = "There was an error"
       redirect_to root_path

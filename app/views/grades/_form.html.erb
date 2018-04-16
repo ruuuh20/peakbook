@@ -27,8 +27,8 @@
 </div>
 
 <div class="field">
-  <%= f.label "Select Assignment" %>
-  <%= f.select(:assignment_id, Assignment.all.map {|u|  u.id }) %>
+  <%= f.label :assignment_id, "Select Assignment" %>
+  <%= f.grouped_collection_select(:assignment_id, Student.order(:first_name), :assignments, :first_name, :id, :name) %>
 </div>
 
 

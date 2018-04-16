@@ -21,9 +21,12 @@ end
     self.courses.each do |course|
       course.assignments.each do |assignment|
       self.assignments << assignment
+      end
     end
-
-  end
   self.assignments.map{|n| n}
-end
+  end
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end

@@ -16,12 +16,15 @@ class GradesController < ApplicationController
     end
   end
 
-
-
-
   def new
     @grade = Grade.new
+
   end
+
+  # def new_with_student
+  #   # @grade = Grade.new
+  #   # @student =
+  # end
 
   def create
     @student = Student.find(params["grade"][:student_id])
