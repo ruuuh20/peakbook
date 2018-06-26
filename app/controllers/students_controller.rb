@@ -44,6 +44,29 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+#   def update
+#   @course = Course.find(params[:id])
+#   if @course.update(course_params)
+#     @course.save
+#     flash[:notice] = "Course Updated"
+#     redirect_to course_path(@course.id)
+#   else
+#     flash[:error] = "There was an error"
+#     redirect_to courses_path
+#   end
+# end
+
+def destroy
+  @student = Student.find(params[:id])
+  @student.destroy
+  flash[:notice] = "Successfully deleted"
+  redirect_to students_path
+end
+
 
   private
    def student_params

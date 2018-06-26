@@ -13,12 +13,12 @@ course4 = Course.create(:name => "Math B", :start_date => Date.parse("2017-05-01
 course5 = Course.create(:name => "Testing3", :start_date => Date.parse("2017-08-01"), :code => 800)
 course6 = Course.create(:name => "Testing4", :start_date => Date.parse("2017-09-01"), :code => 934)
 
-student1 = Student.create(:last_name => "Messi", :first_name => "Lionel")
-student2 = Student.create(:last_name => "Neymar", :first_name => "Neymar")
-student3 = Student.create(:last_name => "Ronaldo", :first_name => "Cristiano")
-student4 = Student.create(:last_name => "Pogba", :first_name => "Paul")
-student5 = Student.create(:last_name => "Griezmann", :first_name => "Antoine")
-student6 = Student.create(:last_name => "Hazard", :first_name => "Eden")
+# student1 = Student.create(:last_name => "Messi", :first_name => "Lionel")
+# student2 = Student.create(:last_name => "Neymar", :first_name => "Neymar")
+# student3 = Student.create(:last_name => "Ronaldo", :first_name => "Cristiano")
+# student4 = Student.create(:last_name => "Pogba", :first_name => "Paul")
+# student5 = Student.create(:last_name => "Griezmann", :first_name => "Antoine")
+# student6 = Student.create(:last_name => "Hazard", :first_name => "Eden")
 
 
 enrollment1 = Enrollment.create(:student_id => 1, :course_id => 1)

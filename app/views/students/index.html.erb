@@ -1,7 +1,13 @@
+<div class="container">
+
+</div>
 <div class="wrapper">
 
 <% @students.each do |student| %>
-  <%= link_to "#{student.fullname}", student_path(student) %><br>
+  <div class="student-div">
+    <%= link_to "#{student.fullname}", student_path(student) %> |
+    <%= link_to "Delete", student_path(student), :class => "card-link", :method => :delete %>
+  </div>
   <% end %>
 
 <br>
@@ -45,4 +51,5 @@
 
 <% end %>
 
+</div>
 </div>

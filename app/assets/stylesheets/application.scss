@@ -106,6 +106,21 @@ table {
 // form //
 .new-form-link {
   display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+
+  width: 80%;
+
+}
+
+.add-new a {
+  color: #235789;
+}
+
+.add-new a:hover {
+  text-decoration: none;
+  border: 1px #235789 solid;
+  padding: 12px;
 }
 
 // alert //
@@ -123,4 +138,11 @@ table {
 
 a {
   color: #0f0f0f;
+}
+a:hover {
+  text-decoration: none;
+}
+
+student-div {
+  border-bottom: 1px #0f0f0f solid;
 }
