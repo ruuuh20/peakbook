@@ -18,6 +18,8 @@ class GradesController < ApplicationController
 
   def new
     @grade = Grade.new
+    @course = Course.find(params[:course_id])
+
 
   end
 

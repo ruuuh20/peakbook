@@ -23,7 +23,7 @@
 
 <div class="field">
   <%= f.label "Select Student" %>
-  <%= f.select(:student_id, Student.all.map {|u|  [u.first_name, u.id] }) %>
+  <%= f.select(:student_id, @course.students.all.map {|u|  [u.first_name, u.id] }) %>
 </div>
 
 <div class="field">

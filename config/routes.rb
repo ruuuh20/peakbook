@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'static_pages#dashboard'
   resources :courses do
     resources :assignments
+    resources :grades
   end
 
   resources :assignments

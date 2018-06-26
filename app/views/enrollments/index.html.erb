@@ -10,8 +10,8 @@
   </tr>
   <% @enrollments.each do |r| %>
     <tr>
-      <td><%= r.student_id %></td>
-      <td><%= r.course_id %></td>
+      <td><%= r.student.fullname %> - <%= r.student.id %></td>
+      <td><%= r.course.name %> - <%= r.course.id %></td>
       <td><%= link_to "Delete", enrollment_path(r), :method => 'delete', data: {confirm: "Are you sure?"} %></td>
     </tr>
   <% end %>

@@ -64,7 +64,7 @@ const bindClickHandlers = () => {
 }
 
 function Student(student) {
-  debugger
+  // debugger
   this.id = student.id;
   this.last_name = student.last_name
   this.first_name = student.first_name
@@ -74,13 +74,13 @@ Student.prototype.formatIndex = function() {
   // console.log(this)
   let html = ""
   html = `<h1>${this.last_name}</h1>` +
-          `<h3>${this.first_name}</h3>` +
-          `<h3>ID: ${this.id}</h3>`
+          `<h3>${this.first_name}</h3>`
+
 
   $("#studentName").append(html)
 }
 
-//Submit assignments via ajax
+//Submit via ajax
 $(function() {
   $("#new_student").on("submit", function(e) {
     e.preventDefault();
@@ -88,7 +88,7 @@ $(function() {
     const action = $(this).attr('action') + ".json"
     const id = $(this).attr("data-id")
     const values = $(this).serialize();
-
+    // debugger
     //using low-level ajax instead of $.post
     $.ajax({
       url: action,
@@ -100,7 +100,7 @@ $(function() {
 
 
       const newStudent= new Student(json)
-  
+
       newStudent.formatIndex();
 
 
