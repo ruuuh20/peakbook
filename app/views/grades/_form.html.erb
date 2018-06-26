@@ -15,7 +15,7 @@
 <% end %>
 
 
-<%= form_for @grade do |f| %>
+<%= form_for [@course, @grade] do |f| %>
 <div class="field">
   <%= f.label :score %>
   <%= f.number_field :score %>
@@ -27,8 +27,8 @@
 </div>
 
 <div class="field">
-  <%= f.label :assignment_id, "Select Assignment" %>
-  <%= f.grouped_collection_select(:assignment_id, Student.order(:first_name), :assignments, :first_name, :id, :name) %>
+  <%= f.label "Select Assignment" %>
+  <%= f.select(:assignment_id, @course.assignments.all.map {|u|  [u.name, u.id] }) %>
 </div>
 
 

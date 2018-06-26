@@ -1,6 +1,7 @@
 class Grade < ApplicationRecord
 
   belongs_to :student
+  belongs_to :course
   belongs_to :assignment,  optional: true
 
   def self.grouped

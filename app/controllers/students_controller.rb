@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
 
     if @student.save && @student.course_ids.count === 1  #make a new enrollment per course but not per student
         Enrollment.create(:student_id => params[:id], :course_id => @student.course_ids.first)
+        redirect_to courses_path
       elsif @student.save && @student.course_ids.count > 1
         @student.course_ids.each do |course_id|
           Enrollment.create(:student_id => params[:id], :course_id => @student.course_id)
