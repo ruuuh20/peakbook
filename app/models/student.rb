@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
   has_many :grades
-  has_many :enrollments
+  has_many :enrollments, dependent: :delete_all
   has_many :courses, through: :enrollments
   has_many :assignments, through: :grades
 

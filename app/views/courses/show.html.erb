@@ -4,11 +4,8 @@
     <%= render :partial => "layouts/sidebar" %>
   <% end %>
 
-
 <h2><%= @course.name %> - Code: <%= @course.code %></h2>
 <h5>description...</h5>
-
-
 
 <table class="table">
   <thead class="thead-light">
@@ -18,11 +15,10 @@
       <th scope="col" class="add-border">Last</th>
 
       <% @assignments.each do |assignment|  %>
-          <th><%= assignment.name %></th>
+          <th><%= link_to assignment.name, course_assignment_path(@course, assignment.id) %></th>
       <% end %>
     </tr>
     </thead>
-
 
     <tbody>
       <% @students.each do |student| %>
@@ -46,20 +42,22 @@
         </tbody>
 </table>
 
-
-
 <br>
 <br>
-<h4><%= link_to "Show Assignments", "#", :class => "show_assignments", :data => {:courseid => @course.id } %></h4>
+<hr>
+<div class="container">
+<h4><%= link_to "Show Assignments...", "#", :class => "show_assignments", :data => {:courseid => @course.id } %></h4>
 
 <div class="load_assignments">
 </div>
+</div>
 
-<br><br><br><br><br>
+<br><br><br><hr>
+<div class="container">
 
-<h5>Add Assignment</h5>
+<h5>New Assignment</h5>
 
-<%= form_for [@course, @assignment], :data => {:id => @assignment.id } do |f|  %>
+<%= form_for [@course, @assignment_new] do |f|  %>
 <div class="field">
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -72,7 +70,7 @@
 
 
 <div class="field">
-  <%= f.submit 'Create Assignment'%>
+  <%= f.submit 'Add Assignment'%>
 </div>
 
 <% end %>
@@ -85,12 +83,10 @@
 
 </div>
 
-<div class="">
-  <%= link_to "Submit a new grade", new_grade_path %>
-
 </div>
 
-<br>
+
+
 <%= link_to "Go back", courses_path %>
 
 

@@ -27,8 +27,6 @@ class AssignmentsController < ApplicationController
     if current_user.teacher?
       @assignment.user_id = current_user.id
     end
-
-
     # binding.pry
     if @assignment.save
       @course.students.each do |student|
@@ -76,9 +74,6 @@ class AssignmentsController < ApplicationController
     flash[:notice] = "Deleted"
     redirect_to semester_course_assignments_path(@semester, @course, @assignment)
   end
-
-
-
 
 
 private

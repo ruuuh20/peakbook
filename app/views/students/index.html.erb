@@ -5,6 +5,7 @@
 
 <% @students.each do |student| %>
   <div class="student-div">
+    (<%= student.id %>)
     <%= link_to "#{student.fullname}", student_path(student) %> |
     <%= link_to "Delete", student_path(student), :class => "card-link", :method => :delete %>
   </div>

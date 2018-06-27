@@ -50,7 +50,7 @@ const bindClickHandlers = () => {
   $.get(`/courses/${courseId}/assignments.json`).success(function(json) {
     var $ol = $("div.courses ol")
     json.forEach(function(assignment) {
-       $(".load_assignments").append("<h4>" + assignment.name + "</h4>");
+       $(".load_assignments").append("<h4>" + assignment.name + "</h4>" + '<a class="hide" href="#">Hide</a>');
     })
     // const filtered = json.filter(assignment => assignment.date.slice(0, 4) === "2017")
 
@@ -61,7 +61,15 @@ const bindClickHandlers = () => {
   // })
   })
 })
+
+
 }
+
+$('.hide').click(function(event){
+    alert('You clicked the Hide link');
+    event.preventDefault();
+  });
+
 
 function Student(student) {
   // debugger

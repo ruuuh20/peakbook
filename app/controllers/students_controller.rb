@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :must_be_admin, :only => :create
 
   def index
     @students = Student.all

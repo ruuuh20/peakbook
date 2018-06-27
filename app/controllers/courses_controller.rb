@@ -25,8 +25,8 @@ class CoursesController < ApplicationController
 
   def show
       @course = Course.find(params[:id])
-      @assignments = @course.assignments
-      @assignment = @course.assignments.build
+      @assignments = @course.assignments[0..-1]  #select all but last record because last one is id=0 (new)
+      @assignment_new = @course.assignments.new
       @students = @course.students.all
 
   end
